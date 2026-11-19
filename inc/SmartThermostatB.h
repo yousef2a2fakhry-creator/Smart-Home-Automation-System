@@ -16,7 +16,6 @@ public:
         const std::string &vendor,
         const std::string &countryOfManufacture,
         int year,
-        ThermostatModes mode = ThermostatModes::OFF,
         double targetTemperature = 22.0,
         double targetHumidity = 50.0);
     void setHumidity(double value);

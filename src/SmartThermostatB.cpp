@@ -4,10 +4,9 @@ SmartThermostatB::SmartThermostatB(
     const std::string &vendor,
     const std::string &countryOfManufacture,
     int year,
-    ThermostatModes mode,
     double targetTemperature,
     double targetHumidity)
-    : Thermostat(deviceID, vendor, countryOfManufacture, year, targetTemperature, mode), humidity(0.0), targetHumidity(targetHumidity) {}
+    : Thermostat(deviceID, vendor, countryOfManufacture, year, targetTemperature), humidity(0.0), targetHumidity(targetHumidity) {}
 
 void SmartThermostatB::setHumidity(double value)
 {

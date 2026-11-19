@@ -3,31 +3,31 @@
 
 #include <string>
 #include "SmartDevice.h"
-#include "ThermostatModes.h"
-
+#include <memory>
+#include "Mode.h"
 class Thermostat : public SmartDevice
 {
 protected:
     double temperature;
     double targetTemperature;
-    ThermostatModes mode;
+    std::shared_ptr<Mode> mode;
 
 public:
-    // The initial mode is OFF.
     Thermostat(
         const std::string &deviceID,
         const std::string &vendor,
         const std::string &countryOfManufacture,
         int year,
-        double targetTemperature = 22.0,
-        ThermostatModes mode = ThermostatModes::OFF
-        );
+        double targetTemperature = 22.0);
+
+    virtual void setMode(std::shared_ptr<Mode> newMode);
+    virtual void run() const;
+    virtual std::string getModeName() const;
+
     virtual void setTargetTemperature(double value);
     void setTemperature(double value);
-    void setThermostatMode(ThermostatModes mode);
     double getTargetTemperature() const;
     double getTemperature() const;
-    ThermostatModes getMode() const;
     ~Thermostat() noexcept override = default;
 };
 

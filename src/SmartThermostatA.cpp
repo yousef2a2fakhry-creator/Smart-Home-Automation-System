@@ -5,8 +5,8 @@ SmartThermostatA::SmartThermostatA(
     const std::string &countryOfManufacture,
     int year,
     double targetTemperature,
-    ThermostatModes mode, bool ecoMode)
-    : Thermostat(deviceID, vendor, countryOfManufacture, year, targetTemperature, mode), ecoMode(ecoMode) {}
+    bool ecoMode)
+    : Thermostat(deviceID, vendor, countryOfManufacture, year, targetTemperature), ecoMode(ecoMode) {}
 
 bool SmartThermostatA::getEcoModeState() const
 {
@@ -15,7 +15,11 @@ bool SmartThermostatA::getEcoModeState() const
 void SmartThermostatA::setEcoModeState(bool state)
 {
     ecoMode = state;
-
+    if (ecoMode)
+    {
+        setTargetTemperature(targetTemperature);
+    }
+    
 }
 void SmartThermostatA::setTargetTemperature(double value) 
 {
