@@ -22,7 +22,7 @@ public:
 
     virtual void turnON() = 0;
     virtual void turnOFF() = 0;
-    virtual void setBrightness(int value) = 0;
+    virtual void setBrightness(int value);
     int getBrightness() const;
     bool getStatus() const;
     void setStatus(bool value);

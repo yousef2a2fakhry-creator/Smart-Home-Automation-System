@@ -8,7 +8,6 @@ class WiredSecurityCamera : public SecurityCamera
 {
 private:
     std::string cableType;
-    bool continuousPower;
 
 public:
     WiredSecurityCamera(
@@ -17,10 +16,11 @@ public:
         const std::string &countryOfManufacture,
         int year,
         const std::string &cableType = "Ethernet/PoE",
-        bool continuousPower = true);
+        bool nightVision = false,
+        bool recording = false
+    );
 
     std::string getCableType() const;
-    bool hasContinuousPower() const;
     std::string getType() const override;
 
     ~WiredSecurityCamera() noexcept override = default;

@@ -7,7 +7,7 @@
 
 class Thermostat : public SmartDevice
 {
-private:
+protected:
     double temperature;
     double targetTemperature;
     ThermostatModes mode;

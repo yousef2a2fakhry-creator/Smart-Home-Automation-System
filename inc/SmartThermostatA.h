@@ -17,6 +17,7 @@ public:
         const std::string &countryOfManufacture,
         int year,
         double targetTemperature = 22.0,
+        ThermostatModes mode = ThermostatModes::OFF,
         bool ecoMode = false);
     bool getEcoModeState() const;
     void setEcoModeState(bool state);

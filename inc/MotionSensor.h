@@ -25,6 +25,8 @@ public:
     std::string getZone() const;
     void setZone(const std::string &zone);
 
+    std::string getType() const override;
+
    
     ~MotionSensor() noexcept override = default;
 };

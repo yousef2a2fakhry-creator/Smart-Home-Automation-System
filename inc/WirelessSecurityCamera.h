@@ -17,6 +17,8 @@ public:
         const std::string &countryOfManufacture,
         int year,
         int batteryLevel = 100,
+        bool nightVision = false,
+        bool recording = false,
         const std::string &wifiSSID = "");
 
     int getBatteryLevel() const;

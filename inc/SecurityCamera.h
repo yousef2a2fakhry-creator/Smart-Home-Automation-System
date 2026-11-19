@@ -11,21 +11,22 @@ private:
     bool recording = false;
 
 public:
+// The initial night-vision state is false.
+SecurityCamera(
+    const std::string &deviceID,
+    const std::string &vendor,
+    const std::string &countryOfManufacture,
+    int year,
+    bool nightVision = false,
+    bool recording = false
+);
     void startRecording();
     void stopRecording();
     void turnNightVisionON();
     void turnNightVisionOFF();
-    bool getNightVision() const;
+    bool isNightVision() const;
     bool isRecording() const;
 
-    // The initial night-vision state is false.
-    SecurityCamera(
-        const std::string &deviceID,
-        const std::string &vendor,
-        const std::string &countryOfManufacture,
-        int year,
-        bool nightVision = false
-    );
         
     ~SecurityCamera() noexcept override = default;
 };

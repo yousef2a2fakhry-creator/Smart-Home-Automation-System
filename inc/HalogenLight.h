@@ -17,7 +17,6 @@ public:
 
     virtual void turnON() override;
     virtual void turnOFF() override;
-    virtual void setBrightness(int value) override;
     std::string getType() const override;
     ~HalogenLight() noexcept override = default;
 };
