@@ -14,10 +14,12 @@ DoorLock::DoorLock(
 void DoorLock::lock()
 {
     isLocked = true;
+    notifyAll();
 }
 void DoorLock::unlock()
 {
     isLocked = false;
+    notifyAll();
 }
 std::string DoorLock::getType() const
 {
