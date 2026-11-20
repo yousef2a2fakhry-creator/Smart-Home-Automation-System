@@ -30,10 +30,10 @@ public:
     std::string getZone() const;
     void setZone(const std::string &zone);
 
-    virtual void notifyAll() const = 0;
-    virtual void registerUser(std::shared_ptr<MotionObserver> subscriber) = 0;
-    virtual void removeUser(std::string id) = 0;
-    virtual std::string generate_uuid() const = 0;
+    virtual void notifyAll() const ;
+    virtual void registerUser(std::shared_ptr<MotionObserver> subscriber) ;
+    virtual void removeUser(std::string id) ;
+    virtual std::string generate_uuid() const ;
 
     std::string getType() const override;
 
