@@ -1,4 +1,8 @@
 #include "../inc/Light.h"
+#include "../inc/MotionSensor.h"
+#include "../inc/Clock.h"
+#include <iostream>
+
 Light::Light(
     const std::string &deviceID,
     const std::string &vendor,
@@ -31,4 +35,27 @@ void Light::setBrightness(int value)
         brightness = 100;
     else
         brightness = value;
+}
+void Light::update(const MotionSensor &sensor)
+{
+    // If motion is detected and it's night time, turn on the light. Otherwise, turn it off.
+    if (sensor.isMotionDetected() && Clock::isNight())
+    {
+        turnON();
+        std::cout << "Motion detected in zone: " << sensor.getZone() << ". Light turned ON." << std::endl;
+    }
+    else
+    {
+        turnOFF();
+        std::cout << "No motion detected in zone: " << sensor.getZone() << ". Light turned OFF." << std::endl;
+    }
+    
+}
+void Light::setSubscribeID(std::string id)
+{
+    observer_id = id;
+}
+std::string Light::getType() const
+{
+    return "Light";
 }

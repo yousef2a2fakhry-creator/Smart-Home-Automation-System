@@ -1,10 +1,10 @@
 #ifndef LIGHT_H
 #define LIGHT_H
-
+#include "MotionObserver.h"
 #include <string>
 #include "SmartDevice.h"
 
-class Light : public SmartDevice
+class Light : public SmartDevice , MotionObserver
 {
 protected:
     int brightness;
@@ -26,6 +26,10 @@ public:
     int getBrightness() const;
     bool getStatus() const;
     void setStatus(bool value);
+
+    virtual void update(const MotionSensor &) override;
+    virtual void setSubscribeID(std::string id) override;
+    virtual std::string getType() const override;
 
     ~Light() noexcept override = default;
 };

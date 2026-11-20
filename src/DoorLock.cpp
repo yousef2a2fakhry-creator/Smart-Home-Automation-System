@@ -1,5 +1,4 @@
 #include "../inc/DoorLock.h"
-#include "Observer.h"
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
@@ -32,11 +31,11 @@ std::string DoorLock::generate_uuid() const
     return boost::uuids::to_string(id);
 }
 
-std::string DoorLock::registerUser(std::shared_ptr<Observer> subscruiber)
+void DoorLock::registerUser(std::shared_ptr<DoorLockObserver> subscriber)
 {
     std::string id = generate_uuid();
-    list_of_Subscribers_for_Door_Lock[id] = subscruiber;
-    subscruiber->setSubscribeID(id);
+    list_of_Subscribers_for_Door_Lock[id] = subscriber;
+    subscriber->setSubscribeID(id);
 }
 void DoorLock::removeUser(std::string id)
 {
@@ -52,4 +51,8 @@ void DoorLock::notifyAll() const
     {
         it.second->update(*this);
     }
+}
+bool DoorLock::CheckLock() const
+{
+    return isLocked;
 }

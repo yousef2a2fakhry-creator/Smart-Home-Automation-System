@@ -4,16 +4,15 @@
 #include <string>
 #include <memory>
 #include <unordered_map>
+#include "MotionObserver.h"
 #include "SmartDevice.h"
-#include "Observee.h"
-#include "Observer.h"
 
-class MotionSensor : public SmartDevice, Observee
+class MotionSensor : public SmartDevice
 {
 private:
     std::string zone;
     bool motionDetected;
-    std::unordered_map<std::string, std::shared_ptr<Observer>> list_of_Subscribers_for_Motion_Sensor;
+    std::unordered_map<std::string, std::shared_ptr<MotionObserver>> list_of_Subscribers_for_Motion_Sensor;
 
 public:
     MotionSensor(
@@ -26,18 +25,19 @@ public:
 
     void detectMotion();
     void clearMotion();
+    bool isMotionDetected() const;
 
     std::string getZone() const;
     void setZone(const std::string &zone);
 
-    virtual void notifyAll() const override;
-    virtual std::string registerUser(std::shared_ptr<Observer> subscriber) override;
-    virtual void removeUser(std::string id) override;
-    virtual std::string generate_uuid() const override;
+    virtual void notifyAll() const = 0;
+    virtual void registerUser(std::shared_ptr<MotionObserver> subscriber) = 0;
+    virtual void removeUser(std::string id) = 0;
+    virtual std::string generate_uuid() const = 0;
 
     std::string getType() const override;
 
-       ~MotionSensor() noexcept override = default;
+    ~MotionSensor() noexcept override = default;
 };
 
 #endif

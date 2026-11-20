@@ -1,5 +1,4 @@
 #include "../inc/MotionSensor.h"
-#include "Observer.h"
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
@@ -41,12 +40,11 @@ std::string MotionSensor::generate_uuid() const
     return boost::uuids::to_string(id);
 }
 
-std::string MotionSensor::registerUser(std::shared_ptr<Observer> subscriber)
+void MotionSensor::registerUser(std::shared_ptr<MotionObserver> subscriber)
 {
     std::string id = generate_uuid();
     list_of_Subscribers_for_Motion_Sensor[id] = subscriber;
     subscriber->setSubscribeID(id);
-    return id;
 }
 
 void MotionSensor::removeUser(std::string id)
@@ -64,4 +62,8 @@ void MotionSensor::notifyAll() const
     {
         subscriber.second->update(*this);
     }
+}
+bool MotionSensor::isMotionDetected() const
+{
+    return motionDetected;
 }

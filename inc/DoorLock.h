@@ -5,14 +5,12 @@
 #include <memory>
 #include "SmartDevice.h"
 #include <unordered_map>
-#include "Observee.h"
-#include "Observer.h"
-
-class DoorLock : public SmartDevice, Observee
+#include "DoorLockObserver.h"
+class DoorLock : public SmartDevice
 {
 private:
     bool isLocked;
-    std::unordered_map<std::string, std::shared_ptr<Observer>> list_of_Subscribers_for_Door_Lock;
+    std::unordered_map<std::string, std::shared_ptr<DoorLockObserver>> list_of_Subscribers_for_Door_Lock;
 
 public:
     DoorLock(
@@ -24,12 +22,12 @@ public:
 
     void lock();
     void unlock();
+    bool CheckLock() const;
 
-    virtual void notifyAll() const override;
-    virtual std::string registerUser(std::shared_ptr<Observer> subscruiber) override;
-    virtual void removeUser(std::string) override;
-
-    virtual std::string generate_uuid() const override;
+    virtual void notifyAll() const ;
+    virtual void registerUser(std::shared_ptr<DoorLockObserver> subscriber) ;
+    virtual void removeUser(std::string) ;
+    virtual std::string generate_uuid() const;
 
     std::string getType() const override;
     ~DoorLock() noexcept override = default;

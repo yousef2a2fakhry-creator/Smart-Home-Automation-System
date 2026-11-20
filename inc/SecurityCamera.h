@@ -3,12 +3,17 @@
 
 #include <string>
 #include "SmartDevice.h"
-
-class SecurityCamera : public SmartDevice
+#include "DoorLockObserver.h"
+class SecurityCamera : public SmartDevice , DoorLockObserver
 {
 private:
     bool nightVision;
     bool recording = false;
+
+    bool armed = false;
+
+protected:
+    void sendAlert(const std::string &message) const;
 
 public:
 // The initial night-vision state is false.
@@ -27,7 +32,13 @@ SecurityCamera(
     bool isNightVision() const;
     bool isRecording() const;
 
-        
+    void armSystem();
+    void disarmSystem();
+    bool isArmed() const;
+
+    void update(const DoorLock &doorLock) override;
+    void setSubscribeID(std::string id) override;
+
     ~SecurityCamera() noexcept override = default;
 };
 #endif
