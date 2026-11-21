@@ -27,6 +27,10 @@ double Thermostat::getTemperature() const
 
 void Thermostat::setMode(std::shared_ptr<Mode> newMode)
 {
+    if (mode != nullptr)
+    {
+        mode->stop();
+    }
     mode = newMode;
 }
 void Thermostat::run() const

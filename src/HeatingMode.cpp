@@ -2,6 +2,8 @@
 #include "../inc/HeatingMode.h"
 #include "../inc/SmartThermostatB.h"
 
+HeatingMode::HeatingMode(std::shared_ptr<ClimateActuator> heater) : heater(heater) {}
+
 void HeatingMode::run(const Thermostat &thermostat) const
 {
     bool tooCold = thermostat.getTemperature() < thermostat.getTargetTemperature();
@@ -13,11 +15,20 @@ void HeatingMode::run(const Thermostat &thermostat) const
         tooDry = smartB->getHumidity() < smartB->getTargetHumidity();
 
     if (tooCold || tooDry)
+    {
+        heater->turnOn(thermostat.getTargetTemperature());
         std::cout << "[" << thermostat.getDeviceID() << "] Heater ON\n";
+    }
     else
+    {
+        heater->turnOff();
         std::cout << "[" << thermostat.getDeviceID() << "] Heater OFF (above the threshold)\n";
+    }
 }
-
+void HeatingMode::stop() const
+{
+    heater->turnOff();
+}
 std::string HeatingMode::getName() const
 {
     return "Heating";
