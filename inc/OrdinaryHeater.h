@@ -6,7 +6,7 @@
 class OrdinaryHeater : public SmartDevice
 {
 private:
-    int temperature;
+    int Heater_Temprature;
     bool isOn;
 
 public:
@@ -15,13 +15,13 @@ public:
         const std::string &vendor,
         const std::string &countryOfManufacture,
         int year,
-        int temperature = 20,
+        int Heater_Temprature = 20,
         bool isOn = false);
 
     void turnOn();
     void turnOff();
-    void setTemperature(int temp);
-    int getTemperature() const;
+    void setHeater_Temprature(int value);
+    int getHeater_Temprature() const;
     bool getStatus() const;
     std::string getType() const override;
 

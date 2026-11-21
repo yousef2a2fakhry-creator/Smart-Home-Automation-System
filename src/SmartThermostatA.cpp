@@ -6,7 +6,9 @@ SmartThermostatA::SmartThermostatA(
     int year,
     double targetTemperature,
     bool ecoMode)
-    : Thermostat(deviceID, vendor, countryOfManufacture, year, targetTemperature), ecoMode(ecoMode) {}
+    : Thermostat(deviceID, vendor, countryOfManufacture, year, targetTemperature), ecoMode(ecoMode) {
+    setTargetTemperature(targetTemperature); // applies the eco clamp if it is enabled
+    }
 
 bool SmartThermostatA::getEcoModeState() const
 {

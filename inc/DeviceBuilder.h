@@ -29,8 +29,8 @@ private:
     std::string zone;
     bool motionDetected;
     bool isLocked;
-    int ordinaryTemperature;
-    double degree;
+    int Heater_Temprature;
+    int AC_Temprature;
 
     void validate() const;
 
@@ -44,8 +44,8 @@ public:
     DeviceBuilder &setYear(int value);
     DeviceBuilder &setBrightness(int value);
     DeviceBuilder &setStatus(bool value);
-    DeviceBuilder &setTemperature(int value);
-    DeviceBuilder &setDegree(double value);
+    DeviceBuilder &setHeater_Temprature(int value);
+    DeviceBuilder &setAC_Temprature(int value);
     DeviceBuilder &setTargetTemperature(double value);
     DeviceBuilder &setEcoMode(bool value);
     DeviceBuilder &setTargetHumidity(double value);

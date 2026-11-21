@@ -61,12 +61,12 @@ std::shared_ptr<SmartDevice> DeviceFactory::createDevice(DeviceTypes deviceType,
     case DeviceTypes::OrdinaryHeater:
     return std::make_shared<OrdinaryHeater>(
         b.deviceID, b.vendor, b.countryOfManufacture, b.year,
-        b.ordinaryTemperature, b.status);
+        b.Heater_Temprature, b.status);
 
     case DeviceTypes::OrdinaryAirConditioner:
     return std::make_shared<OrdinaryAirConditioner>(
         b.deviceID, b.vendor, b.countryOfManufacture, b.year,
-        b.degree, b.status);
+        b.AC_Temprature, b.status);
 
     default:
         throw std::invalid_argument("DeviceFactory: this device type cannot be instantiated");

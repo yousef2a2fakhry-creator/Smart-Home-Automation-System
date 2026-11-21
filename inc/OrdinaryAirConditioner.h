@@ -7,7 +7,7 @@
 class OrdinaryAirConditioner : public SmartDevice
 {
 private:
-    double degree;
+    int AC_Temprature;
     bool isOn;
 
 public:
@@ -16,13 +16,13 @@ public:
         const std::string &vendor,
         const std::string &countryOfManufacture,
         int year,
-        double degree = 22.0,
+        int AC_Temprature = 22,
         bool isOn = false);
 
-    void turnOn(double degree);
+    void turnOn(int AC_Temprature);
     void turnOff();
-    void setDegree(double degree);
-    double getDegree() const;
+    void setAC_Temprature(int value);
+    int getAC_Temprature() const;
     bool getStatus() const;
     std::string getType() const override;
 

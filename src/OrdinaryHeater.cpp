@@ -5,10 +5,10 @@ OrdinaryHeater::OrdinaryHeater(
     const std::string &vendor,
     const std::string &countryOfManufacture,
     int year,
-    int temperature,
+    int Heater_Temprature,
     bool isOn)
     : SmartDevice(deviceID, vendor, countryOfManufacture, year),
-      temperature(temperature),
+      Heater_Temprature(Heater_Temprature),
       isOn(isOn) {}
 
 void OrdinaryHeater::turnOn()
@@ -21,14 +21,14 @@ void OrdinaryHeater::turnOff()
     isOn = false;
 }
 
-void OrdinaryHeater::setTemperature(int temp)
+void OrdinaryHeater::setHeater_Temprature(int value)
 {
-    temperature = temp;
+    Heater_Temprature = value;
 }
 
-int OrdinaryHeater::getTemperature() const
+int OrdinaryHeater::getHeater_Temprature() const
 {
-    return temperature;
+    return Heater_Temprature;
 }
 
 bool OrdinaryHeater::getStatus() const

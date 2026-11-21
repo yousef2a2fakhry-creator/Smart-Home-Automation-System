@@ -4,7 +4,7 @@
 #include <string>
 #include "SmartDevice.h"
 #include "DoorLockObserver.h"
-class SecurityCamera : public SmartDevice , DoorLockObserver
+class SecurityCamera : public SmartDevice , public DoorLockObserver
 {
 private:
     bool nightVision;

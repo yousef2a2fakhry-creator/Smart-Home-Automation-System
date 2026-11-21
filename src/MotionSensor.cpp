@@ -1,7 +1,7 @@
 #include "../inc/MotionSensor.h"
-#include <boost/uuid/uuid.hpp>
-#include <boost/uuid/uuid_generators.hpp>
-#include <boost/uuid/uuid_io.hpp>
+#include <random>
+#include <sstream>
+#include <iomanip>
 
 MotionSensor::MotionSensor(
     const std::string &deviceID,
@@ -36,8 +36,12 @@ std::string MotionSensor::getType() const
 
 std::string MotionSensor::generate_uuid() const
 {
-    auto id = boost::uuids::random_generator()();
-    return boost::uuids::to_string(id);
+    static std::mt19937_64 gen{std::random_device{}()};
+    std::uniform_int_distribution<unsigned long long> dist;
+    std::ostringstream ss;
+    ss << std::hex << std::setfill('0')
+       << std::setw(16) << dist(gen) << std::setw(16) << dist(gen);
+    return ss.str();
 }
 
 void MotionSensor::registerUser(std::shared_ptr<MotionObserver> subscriber)

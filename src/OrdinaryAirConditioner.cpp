@@ -5,15 +5,15 @@ OrdinaryAirConditioner::OrdinaryAirConditioner(
     const std::string &vendor,
     const std::string &countryOfManufacture,
     int year,
-    double degree,
+    int AC_Temprature,
     bool isOn)
     : SmartDevice(deviceID, vendor, countryOfManufacture, year),
-      degree(degree),
+      AC_Temprature(AC_Temprature),
       isOn(isOn) {}
 
-void OrdinaryAirConditioner::turnOn(double degree)
+void OrdinaryAirConditioner::turnOn(int AC_Temprature)
 {
-    setDegree(degree);
+    setAC_Temprature(AC_Temprature);
     isOn = true;
 }
 
@@ -22,14 +22,14 @@ void OrdinaryAirConditioner::turnOff()
     isOn = false;
 }
 
-void OrdinaryAirConditioner::setDegree(double degree)
+void OrdinaryAirConditioner::setAC_Temprature(int value)
 {
-    this->degree = degree;
+    AC_Temprature = value;
 }
 
-double OrdinaryAirConditioner::getDegree() const
+int OrdinaryAirConditioner::getAC_Temprature() const
 {
-    return degree;
+    return AC_Temprature;
 }
 
 bool OrdinaryAirConditioner::getStatus() const

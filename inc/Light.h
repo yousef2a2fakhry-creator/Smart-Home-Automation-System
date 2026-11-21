@@ -1,10 +1,10 @@
 #ifndef LIGHT_H
 #define LIGHT_H
+#include "SmartDevice.h"
 #include "MotionObserver.h"
 #include <string>
-#include "SmartDevice.h"
 
-class Light : public SmartDevice , MotionObserver
+class Light : public SmartDevice , public MotionObserver
 {
 protected:
     int brightness;

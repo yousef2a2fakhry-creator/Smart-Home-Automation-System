@@ -24,8 +24,8 @@ DeviceBuilder::DeviceBuilder()
       zone(""),
       motionDetected(false),
       isLocked(false),
-      ordinaryTemperature(20),
-      degree(22.0)
+      Heater_Temprature(20),
+      AC_Temprature(22)
 {
 }
 
@@ -49,8 +49,8 @@ DeviceBuilder::DeviceBuilder(DeviceTypes deviceType)
       zone(""),
       motionDetected(false),
       isLocked(false),
-      ordinaryTemperature(20),
-      degree(22.0)
+      Heater_Temprature(20),
+      AC_Temprature(22)
 {
 }
 
@@ -93,15 +93,15 @@ DeviceBuilder &DeviceBuilder::setStatus(bool value)
     return *this;
 }
 
-DeviceBuilder &DeviceBuilder::setTemperature(int value)
+DeviceBuilder &DeviceBuilder::setHeater_Temprature(int value)
 {
-    ordinaryTemperature = value;
+    Heater_Temprature = value;
     return *this;
 }
 
-DeviceBuilder &DeviceBuilder::setDegree(double value)
+DeviceBuilder &DeviceBuilder::setAC_Temprature(int value)
 {
-    degree = value;
+    AC_Temprature = value;
     return *this;
 }
 

@@ -39,17 +39,11 @@ void Light::setBrightness(int value)
 void Light::update(const MotionSensor &sensor)
 {
     // If motion is detected and it's night time, turn on the light. Otherwise, turn it off.
-    if (sensor.isMotionDetected() && Clock::isNight())
+    if (sensor.isMotionDetected() && Clock::isNight()&& status== false)
     {
         turnON();
         // std::cout << "Motion detected in zone: " << sensor.getZone() << ". Light turned ON." << std::endl;
     }
-    else
-    {
-        turnOFF();
-        // std::cout << "No motion detected in zone: " << sensor.getZone() << ". Light turned OFF." << std::endl;
-    }
-    
 }
 void Light::setSubscribeID(std::string id)
 {
