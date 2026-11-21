@@ -6,7 +6,8 @@ class MotionSensor;
 class MotionObserver
 {
 protected:
-    std::string observer_id;    
+    std::string MotionObserver_id;
+
 public:
     virtual void update(const MotionSensor &sensor) = 0;
     virtual void setSubscribeID(std::string id) = 0;

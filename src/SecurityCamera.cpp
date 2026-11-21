@@ -50,7 +50,7 @@ bool SecurityCamera::isArmed() const
 
 void SecurityCamera::setSubscribeID(std::string id)
 {
-    observer_id = id;
+    DoorLockObserver_id = id;
 }
 
 void SecurityCamera::update(const DoorLock &doorLock)

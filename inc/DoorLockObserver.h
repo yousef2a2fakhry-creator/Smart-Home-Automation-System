@@ -6,7 +6,8 @@ class DoorLock;
 class DoorLockObserver
 {
 protected:
-    std::string observer_id;
+    std::string DoorLockObserver_id;
+
 public:
     virtual void update(const DoorLock &doorLock) = 0;
     virtual void setSubscribeID(std::string id) = 0;

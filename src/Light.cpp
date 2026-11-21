@@ -47,7 +47,7 @@ void Light::update(const MotionSensor &sensor)
 }
 void Light::setSubscribeID(std::string id)
 {
-    observer_id = id;
+    MotionObserver_id = id;
 }
 std::string Light::getType() const
 {
