@@ -10,7 +10,9 @@
 #include "../inc/WiredSecurityCamera.h"
 #include "../inc/WirelessSecurityCamera.h"
 #include "../inc/DoorLock.h"
-#include "../inc/MotionSensor.h"   
+#include "../inc/MotionSensor.h"
+#include "../inc/OrdinaryHeater.h"
+#include "../inc/OrdinaryAirConditioner.h"
 
 std::shared_ptr<SmartDevice> DeviceFactory::createDevice(DeviceTypes deviceType, const DeviceBuilder &b)
 {
@@ -21,7 +23,7 @@ std::shared_ptr<SmartDevice> DeviceFactory::createDevice(DeviceTypes deviceType,
             b.deviceID, b.vendor, b.countryOfManufacture, b.year,
             b.brightness, b.status);
 
-    case DeviceTypes::HalogenLight: 
+    case DeviceTypes::HalogenLight:
         return std::make_shared<HalogenLight>(
             b.deviceID, b.vendor, b.countryOfManufacture, b.year,
             b.brightness, b.status);
@@ -51,10 +53,20 @@ std::shared_ptr<SmartDevice> DeviceFactory::createDevice(DeviceTypes deviceType,
             b.deviceID, b.vendor, b.countryOfManufacture, b.year,
             b.isLocked);
 
-        case DeviceTypes::MotionSensor:
-            return std::make_shared<MotionSensor>(
-                b.deviceID, b.vendor, b.countryOfManufacture, b.year,
-                b.zone, b.motionDetected);
+    case DeviceTypes::MotionSensor:
+    return std::make_shared<MotionSensor>(
+        b.deviceID, b.vendor, b.countryOfManufacture, b.year,
+        b.zone, b.motionDetected);
+
+    case DeviceTypes::OrdinaryHeater:
+    return std::make_shared<OrdinaryHeater>(
+        b.deviceID, b.vendor, b.countryOfManufacture, b.year,
+        b.ordinaryTemperature, b.status);
+
+    case DeviceTypes::OrdinaryAirConditioner:
+    return std::make_shared<OrdinaryAirConditioner>(
+        b.deviceID, b.vendor, b.countryOfManufacture, b.year,
+        b.degree, b.status);
 
     default:
         throw std::invalid_argument("DeviceFactory: this device type cannot be instantiated");

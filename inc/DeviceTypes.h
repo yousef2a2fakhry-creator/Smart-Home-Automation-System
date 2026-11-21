@@ -13,6 +13,8 @@ enum class DeviceTypes
     WirelessSecurityCamera,
     MotionSensor,
     DoorLock,
+    OrdinaryHeater,
+    OrdinaryAirConditioner,
 };
 
 #endif // DEVICETYPES_H

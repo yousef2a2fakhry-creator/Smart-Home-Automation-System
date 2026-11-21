@@ -9,8 +9,11 @@ class DeviceBuilder;
 
 class DeviceFactory
 {
+private:
+    // preven t any one form crating a factory object
+    DeviceFactory();
 public:
     static std::shared_ptr<SmartDevice> createDevice(DeviceTypes deviceType, const DeviceBuilder &builder);
 };
 
-#endif // DEVICE_FACTORY_H
+#endif 

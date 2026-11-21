@@ -23,7 +23,9 @@ DeviceBuilder::DeviceBuilder()
       wifiSSID(""),
       zone(""),
       motionDetected(false),
-      isLocked(false)
+      isLocked(false),
+      ordinaryTemperature(20),
+      degree(22.0)
 {
 }
 
@@ -46,7 +48,9 @@ DeviceBuilder::DeviceBuilder(DeviceTypes deviceType)
       wifiSSID(""),
       zone(""),
       motionDetected(false),
-      isLocked(false)
+      isLocked(false),
+      ordinaryTemperature(20),
+      degree(22.0)
 {
 }
 
@@ -86,6 +90,18 @@ DeviceBuilder &DeviceBuilder::setBrightness(int value)
 DeviceBuilder &DeviceBuilder::setStatus(bool value)
 {
     status = value;
+    return *this;
+}
+
+DeviceBuilder &DeviceBuilder::setTemperature(int value)
+{
+    ordinaryTemperature = value;
+    return *this;
+}
+
+DeviceBuilder &DeviceBuilder::setDegree(double value)
+{
+    degree = value;
     return *this;
 }
 

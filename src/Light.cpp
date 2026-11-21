@@ -42,12 +42,12 @@ void Light::update(const MotionSensor &sensor)
     if (sensor.isMotionDetected() && Clock::isNight())
     {
         turnON();
-        std::cout << "Motion detected in zone: " << sensor.getZone() << ". Light turned ON." << std::endl;
+        // std::cout << "Motion detected in zone: " << sensor.getZone() << ". Light turned ON." << std::endl;
     }
     else
     {
         turnOFF();
-        std::cout << "No motion detected in zone: " << sensor.getZone() << ". Light turned OFF." << std::endl;
+        // std::cout << "No motion detected in zone: " << sensor.getZone() << ". Light turned OFF." << std::endl;
     }
     
 }
