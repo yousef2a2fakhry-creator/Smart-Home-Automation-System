@@ -6,7 +6,7 @@ AirConditionerAdapter::AirConditionerAdapter(std::shared_ptr<OrdinaryAirConditio
 void AirConditionerAdapter::turnOn(double target)
 {
     ac->setAC_Temprature(static_cast<int>(target));
-    ac->turnOn(target); // legacy AC takes the degree in turnOn
+    ac->turnOn(); // legacy AC takes the degree in turnOn
 }
 
 void AirConditionerAdapter::turnOff()

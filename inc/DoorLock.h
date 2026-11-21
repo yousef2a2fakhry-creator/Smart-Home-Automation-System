@@ -27,9 +27,10 @@ public:
     virtual void notifyAll() const ;
     virtual void registerUser(std::shared_ptr<DoorLockObserver> subscriber) ;
     virtual void removeUser(std::string) ;
-    virtual std::string generate_uuid() const;
 
     std::string getType() const override;
+    void activate() override;
+    void deactivate() override;
     ~DoorLock() noexcept override = default;
 };
 

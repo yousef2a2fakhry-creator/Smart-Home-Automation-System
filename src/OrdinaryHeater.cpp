@@ -40,3 +40,13 @@ std::string OrdinaryHeater::getType() const
 {
     return "OrdinaryHeater";
 }
+
+void OrdinaryHeater::activate()
+{
+    turnOn();
+}
+
+void OrdinaryHeater::deactivate()
+{
+    turnOff();
+}

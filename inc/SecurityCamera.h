@@ -38,6 +38,8 @@ SecurityCamera(
 
     void update(const DoorLock &doorLock) override;
     void setSubscribeID(std::string id) override;
+    void activate() override;
+    void deactivate() override;
 
     ~SecurityCamera() noexcept override = default;
 };

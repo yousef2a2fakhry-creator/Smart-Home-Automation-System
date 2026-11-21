@@ -1,8 +1,5 @@
 #include "../inc/DoorLock.h"
-#include <random>
-#include <sstream>
-#include <iomanip>
-
+#include "IDGenerator.h"
 DoorLock::DoorLock(
     const std::string &deviceID,
     const std::string &vendor,
@@ -24,19 +21,10 @@ std::string DoorLock::getType() const
 {
     return "DoorLock";
 }
-std::string DoorLock::generate_uuid() const
-{
-    static std::mt19937_64 gen{std::random_device{}()};
-    std::uniform_int_distribution<unsigned long long> dist;
-    std::ostringstream ss;
-    ss << std::hex << std::setfill('0')
-       << std::setw(16) << dist(gen) << std::setw(16) << dist(gen);
-    return ss.str();
-}
 
 void DoorLock::registerUser(std::shared_ptr<DoorLockObserver> subscriber)
 {
-    std::string id = generate_uuid();
+    std::string id = IDGenerator::generate_uuid();
     list_of_Subscribers_for_Door_Lock[id] = subscriber;
     subscriber->setSubscribeID(id);
 }
@@ -58,4 +46,14 @@ void DoorLock::notifyAll() const
 bool DoorLock::CheckLock() const
 {
     return isLocked;
+}
+
+void DoorLock::activate()
+{
+    lock();
+}
+
+void DoorLock::deactivate()
+{
+    unlock();
 }

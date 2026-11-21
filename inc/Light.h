@@ -30,6 +30,10 @@ public:
     virtual void update(const MotionSensor &) override;
     virtual void setSubscribeID(std::string id) override;
     virtual std::string getType() const override;
+    void activate() override;
+    void deactivate() override;
+
+
 
     ~Light() noexcept override = default;
 };

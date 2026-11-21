@@ -1,7 +1,9 @@
 #ifndef SMART_DEVICE_H
 #define SMART_DEVICE_H
 #include <string>
-class SmartDevice
+#include "DeviceComponent.h"
+class SmartDevice : public DeviceComponent
+
 {
 private:
     std::string deviceID;
@@ -20,9 +22,8 @@ public:
     std::string getVendor() const;
     std::string getCountryOfManufacture() const;
     int getYear() const;
-    virtual std::string getType() const = 0;
 
-    virtual ~SmartDevice() noexcept = default;
+    virtual ~SmartDevice() noexcept override= default;
 };
 
 

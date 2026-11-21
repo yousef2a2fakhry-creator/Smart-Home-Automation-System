@@ -42,3 +42,15 @@ std::string Thermostat::getModeName() const
 {
     return mode->getName();
 }
+
+// this is not the needed behviour
+void Thermostat::activate()
+{
+    run();
+}
+
+void Thermostat::deactivate()
+{
+    if (mode != nullptr)
+        mode->stop();
+}

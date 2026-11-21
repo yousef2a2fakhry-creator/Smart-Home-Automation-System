@@ -24,6 +24,8 @@ public:
     int getHeater_Temprature() const;
     bool getStatus() const;
     std::string getType() const override;
+    void activate() override;
+    void deactivate() override;
 
     ~OrdinaryHeater() noexcept override = default;
 };

@@ -19,12 +19,14 @@ public:
         int AC_Temprature = 22,
         bool isOn = false);
 
-    void turnOn(int AC_Temprature);
+    void turnOn();
     void turnOff();
     void setAC_Temprature(int value);
     int getAC_Temprature() const;
     bool getStatus() const;
     std::string getType() const override;
+    void activate() override;
+    void deactivate() override;
 
     ~OrdinaryAirConditioner() noexcept override = default;
 };

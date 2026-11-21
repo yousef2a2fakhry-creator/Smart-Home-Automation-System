@@ -70,3 +70,13 @@ void SecurityCamera::sendAlert(const std::string &message) const
 {
     std::cout << "[ALERT] " << message << std::endl;
 }
+
+void SecurityCamera::activate()
+{
+    armSystem();
+}
+
+void SecurityCamera::deactivate()
+{
+    disarmSystem();
+}

@@ -28,6 +28,8 @@ public:
     void setTemperature(double value);
     double getTargetTemperature() const;
     double getTemperature() const;
+    void activate() override;
+    void deactivate() override;
     ~Thermostat() noexcept override = default;
 };
 

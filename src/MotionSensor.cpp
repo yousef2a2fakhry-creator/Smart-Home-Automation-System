@@ -1,7 +1,5 @@
 #include "../inc/MotionSensor.h"
-#include <random>
-#include <sstream>
-#include <iomanip>
+#include "IDGenerator.h"
 
 MotionSensor::MotionSensor(
     const std::string &deviceID,
@@ -33,20 +31,9 @@ std::string MotionSensor::getType() const
 {
     return "MotionSensor";
 }
-
-std::string MotionSensor::generate_uuid() const
-{
-    static std::mt19937_64 gen{std::random_device{}()};
-    std::uniform_int_distribution<unsigned long long> dist;
-    std::ostringstream ss;
-    ss << std::hex << std::setfill('0')
-       << std::setw(16) << dist(gen) << std::setw(16) << dist(gen);
-    return ss.str();
-}
-
 void MotionSensor::registerUser(std::shared_ptr<MotionObserver> subscriber)
 {
-    std::string id = generate_uuid();
+    std::string id = IDGenerator::generate_uuid();
     list_of_Subscribers_for_Motion_Sensor[id] = subscriber;
     subscriber->setSubscribeID(id);
 }
@@ -70,4 +57,14 @@ void MotionSensor::notifyAll() const
 bool MotionSensor::isMotionDetected() const
 {
     return motionDetected;
+}
+
+void MotionSensor::activate()
+{
+    detectMotion();
+}
+
+void MotionSensor::deactivate()
+{
+    clearMotion();
 }

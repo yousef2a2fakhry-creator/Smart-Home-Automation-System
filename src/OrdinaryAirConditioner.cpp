@@ -11,9 +11,8 @@ OrdinaryAirConditioner::OrdinaryAirConditioner(
       AC_Temprature(AC_Temprature),
       isOn(isOn) {}
 
-void OrdinaryAirConditioner::turnOn(int AC_Temprature)
+void OrdinaryAirConditioner::turnOn()
 {
-    setAC_Temprature(AC_Temprature);
     isOn = true;
 }
 
@@ -40,4 +39,14 @@ bool OrdinaryAirConditioner::getStatus() const
 std::string OrdinaryAirConditioner::getType() const
 {
     return "OrdinaryAirConditioner";
+}
+
+void OrdinaryAirConditioner::activate()
+{
+    turnOn();
+}
+
+void OrdinaryAirConditioner::deactivate()
+{
+    turnOff();
 }

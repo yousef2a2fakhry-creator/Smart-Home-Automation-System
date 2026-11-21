@@ -53,3 +53,13 @@ std::string Light::getType() const
 {
     return "Light";
 }
+
+void Light::activate()
+{
+    turnON();
+}
+
+void Light::deactivate()
+{
+    turnOFF();
+}
