@@ -6,7 +6,7 @@ DeviceGroup::DeviceGroup(const std::string &name) : name(name) {}
 void DeviceGroup::add(std::shared_ptr<DeviceComponent> child)
 {
     if (child == nullptr || child.get() == this)
-        return
+        return;
     children.push_back(child);
 }
 

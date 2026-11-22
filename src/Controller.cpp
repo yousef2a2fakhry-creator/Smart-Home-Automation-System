@@ -13,20 +13,56 @@ std::shared_ptr<Controller> Controller::getInstance()
     }
     return Uniqe_Controller;
 }
-void Controller::AssignDevice(std::shared_ptr<SmartDevice> device)
+
+bool Controller::AssignDevice(std::shared_ptr<SmartDevice> device, const std::string &name)
 {
-    List_For_System_Devices[device->getDeviceID()] = device;
+    if (!device || name.empty())
+        return false;
+
+    // the name must be unique
+    if (Devices.find(name) != Devices.end())
+        return false;
+
+    // the device must be unique (it can only be registered once, under one name)
+    const std::string id = device->getDeviceID();
+    for (const auto &entry : Devices)
+    {
+        if (entry.second->getDeviceID() == id)
+            return false;
+    }
+
+    Devices[name] = device;
+    return true;
 }
 
-std::shared_ptr<SmartDevice> Controller::getDevice(std::string ID)
+std::shared_ptr<SmartDevice> Controller::getDeviceByName(const std::string &name) const
 {
-    auto it = List_For_System_Devices.find(ID);
-    if (it != List_For_System_Devices.end())
+    auto it = Devices.find(name);
+    if (it != Devices.end())
     {
         return it->second;
     }
-    else
+    return nullptr;
+}
+
+std::shared_ptr<SmartDevice> Controller::getDeviceByID(const std::string &ID) const
+{
+    for (const auto &entry : Devices)
     {
-        return nullptr;
+        if (entry.second->getDeviceID() == ID)
+        {
+            return entry.second;
+        }
     }
+    return nullptr;
+}
+
+bool Controller::hasName(const std::string &name) const
+{
+    return Devices.find(name) != Devices.end();
+}
+
+bool Controller::removeDevice(const std::string &name)
+{
+    return Devices.erase(name) > 0;
 }
