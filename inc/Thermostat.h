@@ -30,7 +30,9 @@ public:
     double getTemperature() const;
     void activate() override;
     void deactivate() override;
+    DeviceTypes getType() const override;
     ~Thermostat() noexcept override = default;
+
 };
 
 #endif

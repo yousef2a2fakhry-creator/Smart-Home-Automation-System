@@ -32,11 +32,11 @@ public:
     void activate() override;
     void deactivate() override;
 
-    virtual void notifyAll() const ;
-    virtual void registerUser(std::shared_ptr<MotionObserver> subscriber) ;
-    virtual void removeUser(std::string id) ;
+    virtual void notifyAll() const;
+    virtual void registerUser(std::shared_ptr<MotionObserver> subscriber);
+    virtual void removeUser(std::string id);
 
-    std::string getType() const override;
+    DeviceTypes getType() const override;
 
     ~MotionSensor() noexcept override = default;
 };

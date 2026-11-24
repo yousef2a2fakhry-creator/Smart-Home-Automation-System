@@ -10,14 +10,14 @@ HalogenLight::HalogenLight(
 void HalogenLight::turnON()
 {
     // it has preserved value for the brightness when turning ON the light
-    status = true;    
+    status = true;
 }
 void HalogenLight::turnOFF()
 {
     // preserving the brightness value when turning OFF the light
-    status = false;    
+    status = false;
 }
-std::string HalogenLight::getType() const
+DeviceTypes HalogenLight::getType() const
 {
-    return "Halogen Light";
+    return DeviceTypes::HalogenLight;
 }

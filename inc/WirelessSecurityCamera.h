@@ -25,7 +25,7 @@ public:
     void setBatteryLevel(int value);
     std::string getWifiSSID() const;
     void setWifiSSID(const std::string &ssid);
-    std::string getType() const override;
+    DeviceTypes getType() const override;
 
     ~WirelessSecurityCamera() noexcept override = default;
 };

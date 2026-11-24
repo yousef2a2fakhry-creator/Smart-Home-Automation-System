@@ -24,7 +24,7 @@ double SmartThermostatB::getTargetHumidity() const
 {
     return targetHumidity;
 }
-std::string SmartThermostatB::getType() const
+DeviceTypes SmartThermostatB::getType() const
 {
-    return "SmartThermostatB";
+    return DeviceTypes::SmartThermostatB;
 }

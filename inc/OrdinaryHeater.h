@@ -23,7 +23,7 @@ public:
     void setHeater_Temprature(int value);
     int getHeater_Temprature() const;
     bool getStatus() const;
-    std::string getType() const override;
+    DeviceTypes getType() const override;
     void activate() override;
     void deactivate() override;
 

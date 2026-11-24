@@ -27,9 +27,9 @@ std::string MotionSensor::getZone() const
 {
     return zone;
 }
-std::string MotionSensor::getType() const
+DeviceTypes MotionSensor::getType() const
 {
-    return "MotionSensor";
+    return DeviceTypes::MotionSensor;
 }
 void MotionSensor::registerUser(std::shared_ptr<MotionObserver> subscriber)
 {

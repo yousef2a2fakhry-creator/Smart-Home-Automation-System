@@ -6,9 +6,10 @@ SmartThermostatA::SmartThermostatA(
     int year,
     double targetTemperature,
     bool ecoMode)
-    : Thermostat(deviceID, vendor, countryOfManufacture, year, targetTemperature), ecoMode(ecoMode) {
+    : Thermostat(deviceID, vendor, countryOfManufacture, year, targetTemperature), ecoMode(ecoMode)
+{
     setTargetTemperature(targetTemperature); // applies the eco clamp if it is enabled
-    }
+}
 
 bool SmartThermostatA::getEcoModeState() const
 {
@@ -21,9 +22,8 @@ void SmartThermostatA::setEcoModeState(bool state)
     {
         setTargetTemperature(targetTemperature);
     }
-    
 }
-void SmartThermostatA::setTargetTemperature(double value) 
+void SmartThermostatA::setTargetTemperature(double value)
 {
     if (ecoMode && value > 23.0)
         value = 23.0;
@@ -31,8 +31,7 @@ void SmartThermostatA::setTargetTemperature(double value)
         value = 18.0;
     Thermostat::setTargetTemperature(value);
 }
-std::string SmartThermostatA::getType() const
+DeviceTypes SmartThermostatA::getType() const
 {
-    return "SmartThermostatA";
+    return DeviceTypes::SmartThermostatA;
 }
-

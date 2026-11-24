@@ -4,7 +4,7 @@
 #include "MotionObserver.h"
 #include <string>
 
-class Light : public SmartDevice , public MotionObserver
+class Light : public SmartDevice, public MotionObserver
 {
 protected:
     int brightness;
@@ -29,11 +29,9 @@ public:
 
     virtual void update(const MotionSensor &) override;
     virtual void setSubscribeID(std::string id) override;
-    virtual std::string getType() const override;
+    virtual DeviceTypes getType() const = 0;
     void activate() override;
     void deactivate() override;
-
-
 
     ~Light() noexcept override = default;
 };

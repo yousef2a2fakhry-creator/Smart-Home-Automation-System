@@ -17,9 +17,9 @@ void DoorLock::unlock()
     isLocked = false;
     notifyAll();
 }
-std::string DoorLock::getType() const
+DeviceTypes DoorLock::getType() const
 {
-    return "DoorLock";
+    return DeviceTypes::DoorLock;
 }
 
 void DoorLock::registerUser(std::shared_ptr<DoorLockObserver> subscriber)
@@ -38,7 +38,7 @@ void DoorLock::removeUser(std::string id)
 }
 void DoorLock::notifyAll() const
 {
-    for(auto it : list_of_Subscribers_for_Door_Lock)
+    for (auto it : list_of_Subscribers_for_Door_Lock)
     {
         it.second->update(*this);
     }

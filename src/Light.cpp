@@ -49,11 +49,6 @@ void Light::setSubscribeID(std::string id)
 {
     MotionObserver_id = id;
 }
-std::string Light::getType() const
-{
-    return "Light";
-}
-
 void Light::activate()
 {
     turnON();

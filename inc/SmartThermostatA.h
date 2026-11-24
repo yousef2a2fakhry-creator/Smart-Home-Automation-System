@@ -21,7 +21,7 @@ public:
     bool getEcoModeState() const;
     void setEcoModeState(bool state);
     virtual void setTargetTemperature(double value) override;
-    std::string getType() const override;
+    DeviceTypes getType() const override;
     ~SmartThermostatA() noexcept override = default;
 };
 

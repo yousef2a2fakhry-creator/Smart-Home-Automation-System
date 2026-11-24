@@ -36,9 +36,9 @@ bool OrdinaryHeater::getStatus() const
     return isOn;
 }
 
-std::string OrdinaryHeater::getType() const
+DeviceTypes OrdinaryHeater::getType() const
 {
-    return "OrdinaryHeater";
+    return DeviceTypes::OrdinaryHeater;
 }
 
 void OrdinaryHeater::activate()

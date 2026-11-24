@@ -17,11 +17,10 @@ public:
         int year,
         const std::string &cableType = "Ethernet/PoE",
         bool nightVision = false,
-        bool recording = false
-    );
+        bool recording = false);
 
     std::string getCableType() const;
-    std::string getType() const override;
+    DeviceTypes getType() const override;
 
     ~WiredSecurityCamera() noexcept override = default;
 };

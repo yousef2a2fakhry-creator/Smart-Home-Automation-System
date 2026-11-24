@@ -18,7 +18,7 @@ void LEDLight::turnOFF()
     status = false;
     brightness = 0; // Set brightness to zero when turned off
 }
-std::string LEDLight::getType() const
+DeviceTypes LEDLight::getType() const
 {
-    return "LED Light";
+    return DeviceTypes::LEDLight;
 }

@@ -39,7 +39,7 @@ void WirelessSecurityCamera::setWifiSSID(const std::string &ssid)
     wifiSSID = ssid;
 }
 
-std::string WirelessSecurityCamera::getType() const
+DeviceTypes WirelessSecurityCamera::getType() const
 {
-    return "WirelessSecurityCamera";
+    return DeviceTypes::WirelessSecurityCamera;
 }

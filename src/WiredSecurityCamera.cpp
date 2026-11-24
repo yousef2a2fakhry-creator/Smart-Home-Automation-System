@@ -15,7 +15,7 @@ std::string WiredSecurityCamera::getCableType() const
     return cableType;
 }
 
-std::string WiredSecurityCamera::getType() const
+DeviceTypes WiredSecurityCamera::getType() const
 {
-    return "WiredSecurityCamera";
+    return DeviceTypes::WiredSecurityCamera;
 }

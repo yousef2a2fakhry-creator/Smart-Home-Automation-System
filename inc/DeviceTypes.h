@@ -18,9 +18,10 @@ enum class DeviceTypes
 
     Bedroom,
     LivingRoom,
+    DiningRoom,
     Kitchen,
     Bathroom,
-    Hallway,
+    
 
     FirstFloor,
     SecondFloor,

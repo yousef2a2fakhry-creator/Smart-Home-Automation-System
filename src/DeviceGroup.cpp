@@ -1,7 +1,7 @@
 
 #include "../inc/DeviceGroup.h"
 
-DeviceGroup::DeviceGroup(const std::string &name) : name(name) {}
+DeviceGroup::DeviceGroup(DeviceTypes type) : type(type) {}
 
 void DeviceGroup::add(std::shared_ptr<DeviceComponent> child)
 {
@@ -28,9 +28,9 @@ int DeviceGroup::getChildCount() const
     return static_cast<int>(children.size());
 }
 
-std::string DeviceGroup::getType() const
+DeviceTypes DeviceGroup::getType() const
 {
-    return name;
+    return type;
 }
 
 void DeviceGroup::activate()

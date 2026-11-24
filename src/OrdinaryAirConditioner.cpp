@@ -36,9 +36,9 @@ bool OrdinaryAirConditioner::getStatus() const
     return isOn;
 }
 
-std::string OrdinaryAirConditioner::getType() const
+DeviceTypes OrdinaryAirConditioner::getType() const
 {
-    return "OrdinaryAirConditioner";
+    return DeviceTypes::OrdinaryAirConditioner;
 }
 
 void OrdinaryAirConditioner::activate()

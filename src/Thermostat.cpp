@@ -54,3 +54,7 @@ void Thermostat::deactivate()
     if (mode != nullptr)
         mode->stop();
 }
+DeviceTypes Thermostat::getType() const
+{
+    return DeviceTypes::Thermostat;
+}

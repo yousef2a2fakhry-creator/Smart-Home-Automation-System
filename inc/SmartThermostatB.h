@@ -22,8 +22,7 @@ public:
     double getHumidity() const;
     void setTargetHumidity(double value);
     double getTargetHumidity() const;
-    std::string getType() const override;
+    DeviceTypes getType() const override;
     ~SmartThermostatB() noexcept override = default;
-
 };
 #endif

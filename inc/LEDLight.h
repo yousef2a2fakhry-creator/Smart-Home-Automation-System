@@ -17,7 +17,7 @@ public:
 
     virtual void turnON() override;
     virtual void turnOFF() override;
-    std::string getType() const override;
+    DeviceTypes getType() const override;
     ~LEDLight() noexcept override = default;
 };
 
