@@ -15,6 +15,20 @@ enum class DeviceTypes
     DoorLock,
     OrdinaryHeater,
     OrdinaryAirConditioner,
+
+    Bedroom,
+    LivingRoom,
+    Kitchen,
+    Bathroom,
+    Hallway,
+
+    FirstFloor,
+    SecondFloor,
+    ThirdFloor,
+
+    LightingGroup,
+    SecurityGroup,
+    ClimateGroup
 };
 
 #endif // DEVICETYPES_H
